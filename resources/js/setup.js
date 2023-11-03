@@ -224,9 +224,10 @@ async function displayExistingTimeSlots(groupCategory){
                 students += '<span id="student_' + studentId + '">' + CLASSLIST[studentId].DisplayName + ' (' + CLASSLIST[studentId].OrgDefinedId + ')<br /></span>';
             }
 
-        } else if(groupCategory.MaxUsersPerGroup == 1) {
-            students = '&nbsp;-&nbsp;';
-        }
+        } 
+        // else if(groupCategory.MaxUsersPerGroup == 1) {
+        //     students = '&nbsp;-&nbsp;';
+        // }
 
         if(duration == 0){
             duration = timeSlot.end.diff(timeSlot.start, 'minutes');
