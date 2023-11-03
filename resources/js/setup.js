@@ -252,7 +252,7 @@ async function displayExistingTimeSlots(groupCategory){
 
         $('#existing_timeslots__table').append(html);
         
-        if(groupCategory.MaxUsersPerGroup > 1)
+        if(groupCategory.MaxUsersPerGroup >= 1)
             $('#existing_timeslots__table #timeslot_' + timeSlot.groupId).find('.enrollStudents').on('click', function(){manageEnrollment('add', timeSlot.groupId)});
 
         if(groupCategory.MaxUsersPerGroup > 1)
