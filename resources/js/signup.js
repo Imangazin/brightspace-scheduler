@@ -212,7 +212,7 @@ async function selectTimeSlot(group){
         return false;
     }
 
-    let classList = getClassList();
+    let classList = getClassList('bas');
 
     let data = {
         "d2l_rf": "IsGroupFull",
@@ -271,7 +271,7 @@ function enrollInGroup(groupId){
 }
 
 async function notifyOfCancellation(){
-    let classList = getClassList();
+    let classList = getClassList('bas');
     
     let pluginPath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/"));
     let result = await fetch(pluginPath + '/resources/html/emailstudentcancelled.tpl');
