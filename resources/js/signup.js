@@ -200,8 +200,9 @@ async function cancelMySelection(){
 
     $('#cancel-selection').remove();
     let unenroll = unenrollFromGroup(MY_TIME.groupId);
-    let sendEmail = notifyOfCancellation();
-    await Promise.all([unenroll, sendEmail]);
+    //let sendEmail = notifyOfCancellation();
+    //await Promise.all([unenroll, sendEmail]);
+    await Promise.all([unenroll]);
     MY_TIME = false;
 
     window.location.reload();
@@ -255,8 +256,9 @@ async function selectTimeSlot(group){
     classList = await classList;
     
     let studentEmail = classList[USER.Identifier].Email;
-    let email = sendEmail(studentEmail, subject, body);
-    await Promise.all([enroll, email]);
+    //let email = sendEmail(studentEmail, subject, body);
+    //await Promise.all([enroll, email]);
+    await Promise.all([enroll);
     window.location.reload();
 }
 
