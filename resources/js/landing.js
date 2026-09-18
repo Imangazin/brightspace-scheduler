@@ -1,7 +1,10 @@
 let url = window.top.location.href;
-let match = url.match(/\/content\/(\d+)\/viewContent\/(\d+)\//);
-let ORG_UNIT_ID = match[1];
-let TOPIC_ID = match[2];
+// let match = url.match(/\/content\/(\d+)\/viewContent\/(\d+)\//);
+// let ORG_UNIT_ID = match[1];
+// let TOPIC_ID = match[2];
+let ORG_UNIT_ID = url.match(/lessons\/(\d+)/)[1];
+let TOPIC_ID = url.match(/topics\/(\d+)/)[1];
+
 
 const bs = new Brightspace(ORG_UNIT_ID);
 
@@ -34,7 +37,7 @@ async function redirect(){
     let redirect = '/d2l/lp/navbars/' + ORG_UNIT_ID + '/customlinks/external/' + ((student) ? signupLinkId : adminLinkId) + '?cfg=' + config;
     
     if(student){
-        window.location.replace(redirect);
+        window.top.location.replace(redirect);
     } else {
         window.top.location.replace(redirect);
     }

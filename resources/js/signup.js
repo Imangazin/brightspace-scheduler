@@ -1,5 +1,11 @@
-let match = window.top.location.href.match(/\/content\/(\d+)\//);
-let ORG_UNIT_ID = match[1];
+// let match = window.top.location.href.match(/\/content\/(\d+)\//);
+// let ORG_UNIT_ID = match[1];
+let url = window.top.location.href;
+let orgUnitMatch = url.match(/(?:lessons|navbars)\/(\d+)/);
+if(orgUnitMatch == null){
+    throw new Error('Unable to determine the Brightspace org unit from the current URL.');
+}
+let ORG_UNIT_ID = orgUnitMatch[1];
 const bs = new Brightspace(ORG_UNIT_ID);
 const params = new Proxy(new URLSearchParams(window.parent.location.search), {get: (searchParams, prop) => searchParams.get(prop)});
 let CFG = params.cfg;
